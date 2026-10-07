@@ -34,3 +34,14 @@ El manifest es la lista controlada de artefactos Drake que queremos exponer como
 - Evita POMs que dependan de parents locales del reactor.
 - Prefiere versiones con sufijo Drake cuando el codigo fue modificado por la organizacion.
 - No publiques secretos, configs de servidor ni archivos de runtime.
+
+## Coordenadas Universales 26.x
+
+Linea separada de la 1.21.11 (versiones distintas para no pisar `~/.m2`):
+
+| Artefacto | Version | Origen | Bytecode |
+|---|---|---|---|
+| `slimefun-core` | `11.0-Universal-26.x-SNAPSHOT` | `Slimefun4-Drake` rama `fix/ticket-75-universal` (incluye `feat/universal-slimefun-abi`) | Java 21 |
+| `infinitylib-drake` | `1.3.11-UNIVERSAL-26x-SNAPSHOT` | `DrakeInfinityLib` rama `port-26x` | Java 25 |
+
+El core universal expone los paquetes upstream `io.github.thebusybiscuit.slimefun4.*`; los addons port-26x deben compilar contra estas coordenadas y no contra `11.0-Drake-1.21.11-SNAPSHOT`. Ambos se publican con POM minimo (sin parent del reactor): declara `slimefun-core` como `provided` en el addon consumidor.

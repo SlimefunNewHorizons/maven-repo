@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.drakescraft_labs</groupId>
+  <artifactId>slimefun-core</artifactId>
+  <version>11.0-Universal-26.x-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>slimefun-core</name>
+  <description>Slimefun core universal (paquetes io.github.thebusybiscuit.slimefun4), bytecode Java 21, para Paper 1.21.11 y Paper/Purpur 26.x. Rama fix/ticket-75-universal 5a2eeae2f.</description>
+</project>
