@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.github.drakescraft_labs</groupId>
+  <artifactId>EcoPower-drake</artifactId>
+  <versioning>
+    <lastUpdated>20261013054945</lastUpdated>
+    <snapshot>
+      <timestamp>20261013.054945</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.20.6-Universal-26.x-20261013.054945-1</value>
+        <updated>20261013054945</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.20.6-Universal-26.x-20261013.054945-1</value>
+        <updated>20261013054945</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+  <version>1.20.6-Universal-26.x-SNAPSHOT</version>
+</metadata>
