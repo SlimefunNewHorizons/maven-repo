@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.github.drakescraft_labs</groupId>
+  <artifactId>dough-core</artifactId>
+  <versioning>
+    <lastUpdated>20261028181218</lastUpdated>
+    <snapshot>
+      <timestamp>20261028.181218</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <snapshotVersions>
+      <snapshotVersion><extension>jar</extension><value>1.3.1-Universal-26.x-20261028.181218-1</value><updated>20261028181218</updated></snapshotVersion>
+      <snapshotVersion><extension>pom</extension><value>1.3.1-Universal-26.x-20261028.181218-1</value><updated>20261028181218</updated></snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+  <version>1.3.1-Universal-26.x-SNAPSHOT</version>
+</metadata>
