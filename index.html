@@ -289,6 +289,25 @@
       margin-top: 34px;
     }
 
+
+    h3 { margin: 26px 0 12px; font-size: 20px; }
+    .artifact { min-height: 0; }
+    .artifact p:empty { display: none; }
+    .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: rgba(15, 27, 43, 0.72); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 760px; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--aqua); font-weight: 700; background: rgba(255,255,255,0.03); }
+    td code { color: #d7f9ff; overflow-wrap: anywhere; }
+    .warn { margin: 18px 0; padding: 16px 18px; border: 1px solid rgba(249,115,22,0.6); border-radius: 12px; background: rgba(249,115,22,0.1); line-height: 1.6; }
+    .lines { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
+    .lines h3 { margin-top: 0; }
+    .codebox { position: relative; margin-top: 12px; border: 1px solid rgba(94,234,212,0.28); border-radius: 12px; background: rgba(4,10,20,0.78); }
+    .codebox pre { padding: 16px; padding-top: 40px; font-size: 13px; }
+    .copy { position: absolute; top: 8px; right: 8px; min-height: 28px; padding: 0 10px; border: 1px solid var(--line); border-radius: 6px; background: rgba(15,27,43,0.9); color: var(--text); cursor: pointer; font: inherit; font-size: 12px; }
+    .copy:hover { border-color: var(--aqua); }
+    .label { position: absolute; top: 12px; left: 16px; font-size: 12px; color: var(--muted); }
+    @media (max-width: 860px) { .lines { grid-template-columns: minmax(0, 1fr); } }
+
     @media (max-width: 860px) {
       header,
       .section-title {
@@ -329,6 +348,7 @@
         <span>DrakesCraft Labs Maven</span>
       </div>
       <nav aria-label="Navegacion principal">
+        <a href="#lineas">Lineas</a>
         <a href="#artifacts">Artefactos</a>
         <a href="#usage">Uso Maven</a>
         <a href="#gradle">Gradle</a>
@@ -368,49 +388,180 @@
         </div>
       </section>
 
+      <section id="lineas">
+        <div class="section-title">
+          <h2>Dos lineas de versiones</h2>
+          <p class="muted">Produccion (Minecraft 1.21.11) y T2 (Minecraft 26.2). Elige UNA por servidor/addon.</p>
+        </div>
+        <div class="warn"><strong>Aviso:</strong> las lineas 1.21.11 y 26.x <strong>NO son intercambiables en binario</strong>. Cambian los paquetes Java, las APIs de Minecraft/Paper y la version de Java requerida. Un addon compilado contra una linea no cargara en la otra: recompilalo contra la linea correcta.</div>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Linea</th><th>Minecraft</th><th>Java</th><th>Paquete Slimefun</th><th>Paquete dough</th><th>Rama fuente</th><th>Versiones</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Produccion</strong></td><td>1.21.11</td><td>21</td><td><code>com.github.drakescraft_labs.slimefun4</code></td><td><code>dev.drake.dough</code></td><td><code>main</code></td><td><code>slimefun-core 11.0-Drake-1.21.11-SNAPSHOT</code><br><code>dough-core 1.3.1-DRAKE-v11-SNAPSHOT</code><br><code>SefiLib 0.3.0-Drake-1.21.11</code></td></tr>
+            <tr><td><strong>T2</strong></td><td>26.2</td><td>25</td><td><code>io.github.thebusybiscuit.slimefun4</code></td><td><code>io.github.bakedlibs.dough</code></td><td><code>port-26x</code></td><td><code>slimefun-core 11.0-Universal-26.x-SNAPSHOT</code><br><code>dough-core 1.3.1-Universal-26.x-SNAPSHOT</code><br><code>SefiLib 0.3.1-Universal-26.x-SNAPSHOT</code></td></tr>
+          </tbody>
+        </table></div>
+        <p class="muted">Matriz completa en <a href="docs/COMPATIBILITY.md">docs/COMPATIBILITY.md</a>.</p>
+        <div class="lines">
+          <div><h3>Produccion 1.21.11 &middot; Java 21</h3><div class="codebox"><span class="label">Maven</span><button class="copy" type="button">Copiar</button><pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;com.github.drakescraft_labs&lt;/groupId&gt;
+  &lt;artifactId&gt;slimefun-core&lt;/artifactId&gt;
+  &lt;version&gt;11.0-Drake-1.21.11-SNAPSHOT&lt;/version&gt;
+  &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;com.github.drakescraft_labs&lt;/groupId&gt;
+  &lt;artifactId&gt;dough-core&lt;/artifactId&gt;
+  &lt;version&gt;1.3.1-DRAKE-v11-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;com.github.drakescraft_labs&lt;/groupId&gt;
+  &lt;artifactId&gt;SefiLib&lt;/artifactId&gt;
+  &lt;version&gt;0.3.0-Drake-1.21.11&lt;/version&gt;
+&lt;/dependency&gt;</code></pre></div><div class="codebox"><span class="label">Gradle (Kotlin)</span><button class="copy" type="button">Copiar</button><pre><code>dependencies {
+    compileOnly(&quot;com.github.drakescraft_labs:slimefun-core:11.0-Drake-1.21.11-SNAPSHOT&quot;)
+    implementation(&quot;com.github.drakescraft_labs:dough-core:1.3.1-DRAKE-v11-SNAPSHOT&quot;)
+    implementation(&quot;com.github.drakescraft_labs:SefiLib:0.3.0-Drake-1.21.11&quot;)
+}</code></pre></div></div>
+          <div><h3>T2 26.2 &middot; Java 25</h3><div class="codebox"><span class="label">Maven</span><button class="copy" type="button">Copiar</button><pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;com.github.drakescraft_labs&lt;/groupId&gt;
+  &lt;artifactId&gt;slimefun-core&lt;/artifactId&gt;
+  &lt;version&gt;11.0-Universal-26.x-SNAPSHOT&lt;/version&gt;
+  &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;com.github.drakescraft_labs&lt;/groupId&gt;
+  &lt;artifactId&gt;dough-core&lt;/artifactId&gt;
+  &lt;version&gt;1.3.1-Universal-26.x-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;com.github.drakescraft_labs&lt;/groupId&gt;
+  &lt;artifactId&gt;SefiLib&lt;/artifactId&gt;
+  &lt;version&gt;0.3.1-Universal-26.x-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;</code></pre></div><div class="codebox"><span class="label">Gradle (Kotlin)</span><button class="copy" type="button">Copiar</button><pre><code>dependencies {
+    compileOnly(&quot;com.github.drakescraft_labs:slimefun-core:11.0-Universal-26.x-SNAPSHOT&quot;)
+    implementation(&quot;com.github.drakescraft_labs:dough-core:1.3.1-Universal-26.x-SNAPSHOT&quot;)
+    implementation(&quot;com.github.drakescraft_labs:SefiLib:0.3.1-Universal-26.x-SNAPSHOT&quot;)
+}</code></pre></div></div>
+        </div>
+      </section>
+
       <section id="artifacts">
         <div class="section-title">
           <h2>Artefactos publicados</h2>
-          <p class="muted">Base comun para Networks, addons portados y proximos plugins de DrakesCraft Labs.</p>
+          <p class="muted">Lista generada automaticamente con <code>scripts/generar_indice.py</code>.</p>
         </div>
-        <div class="grid">
-          <article class="artifact">
-            <strong>slimefun-core</strong>
-            <small>11.0-Drake-1.21.1-SNAPSHOT</small>
-            <p>Core Drake/Slimefun usado como API base por los addons.</p>
-            <a href="com/github/drakescraft_labs/slimefun-core/">Abrir carpeta</a>
-          </article>
-          <article class="artifact">
-            <strong>dough-core</strong>
-            <small>1.3.1-DRAKE-v11-SNAPSHOT</small>
-            <p>Utilidades compartidas requeridas por plugins portados.</p>
-            <a href="com/github/drakescraft_labs/dough-core/">Abrir carpeta</a>
-          </article>
-          <article class="artifact">
-            <strong>sefilib-drake</strong>
-            <small>0.3.1-DRAKE-SNAPSHOT</small>
-            <p>Libreria auxiliar usada por Networks y otros addons.</p>
-            <a href="com/github/drakescraft_labs/sefilib-drake/">Abrir carpeta</a>
-          </article>
-          <article class="artifact">
-            <strong>InfinityExpansion-drake</strong>
-            <small>1.20.6-Drake-SNAPSHOT</small>
-            <p>API/compatibilidad de InfinityExpansion para integraciones.</p>
-            <a href="com/github/drakescraft_labs/InfinityExpansion-drake/">Abrir carpeta</a>
-          </article>
-          <article class="artifact">
-            <strong>NetworksV6-drake</strong>
-            <small>11-SNAPSHOT</small>
-            <p>Jar compilado de NetworksV6 Drake como plugin independiente controlado.</p>
-            <a href="com/github/drakescraft_labs/NetworksV6-drake/">Abrir carpeta</a>
-          </article>
-          <article class="artifact">
-            <strong>Networks-Experimental-drake</strong>
-            <small>11-SNAPSHOT</small>
-            <p>Jar experimental compilado de Networks con características avanzadas.</p>
-            <a href="com/github/drakescraft_labs/Networks-Experimental-drake/">Abrir carpeta</a>
-          </article>
-        </div>
+        <!--ARTIFACTS:START-->
+<h3>Produccion &middot; Minecraft 1.21.11 &middot; Java 21 <span class="muted">(8)</span></h3><div class="grid">
+<article class="artifact"><strong>dough-core</strong><small>1.3.1-DRAKE-v11-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/dough-core/1.3.1-DRAKE-v11-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>DrakesLabPresence-drake</strong><small>1.0.1-DRAKE-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/DrakesLabPresence-drake/1.0.1-DRAKE-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>guizhanlib-all</strong><small>2.5.0-Drake-1.21.11</small><p></p><a href="com/github/drakescraft_labs/guizhanlib-all/2.5.0-Drake-1.21.11/">Abrir carpeta</a></article>
+<article class="artifact"><strong>infinitylib-drake</strong><small>1.3.11-DRAKE-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/infinitylib-drake/1.3.11-DRAKE-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>kinematic-core-drake</strong><small>33-DRAKE-1.21.11-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/kinematic-core-drake/33-DRAKE-1.21.11-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SefiLib</strong><small>0.3.0-Drake-1.21.11</small><p></p><a href="com/github/drakescraft_labs/SefiLib/0.3.0-Drake-1.21.11/">Abrir carpeta</a></article>
+<article class="artifact"><strong>sefilib-drake</strong><small>0.3.1-DRAKE-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/sefilib-drake/0.3.1-DRAKE-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>slimefun-core</strong><small>11.0-Drake-1.21.11-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/slimefun-core/11.0-Drake-1.21.11-SNAPSHOT/">Abrir carpeta</a></article>
+</div>
+<h3>T2 &middot; Minecraft 26.2 &middot; Java 25 <span class="muted">(4)</span></h3><div class="grid">
+<article class="artifact"><strong>dough-core</strong><small>1.3.1-Universal-26.x-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/dough-core/1.3.1-Universal-26.x-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>EcoPower-drake</strong><small>1.20.6-Universal-26.x-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/EcoPower-drake/1.20.6-Universal-26.x-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SefiLib</strong><small>0.3.1-Universal-26.x-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/SefiLib/0.3.1-Universal-26.x-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>slimefun-core</strong><small>11.0-Universal-26.x-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/slimefun-core/11.0-Universal-26.x-SNAPSHOT/">Abrir carpeta</a></article>
+</div>
+<h3>Otras versiones / legado <span class="muted">(91)</span></h3><div class="grid">
+<article class="artifact"><strong>AdvancedTech-drake</strong><small>1.0.0</small><p></p><a href="com/github/drakescraft_labs/AdvancedTech-drake/1.0.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Aircraft-drake</strong><small>0.1-Drake-1.21.1-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/Aircraft-drake/0.1-Drake-1.21.1-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>AlchimiaVitae-drake</strong><small>1.1.1</small><p></p><a href="com/github/drakescraft_labs/AlchimiaVitae-drake/1.1.1/">Abrir carpeta</a></article>
+<article class="artifact"><strong>BetterChests-drake</strong><small>1.0</small><p></p><a href="com/github/drakescraft_labs/BetterChests-drake/1.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>BetterNuclearReactor-drake</strong><small>1.3.0</small><p></p><a href="com/github/drakescraft_labs/BetterNuclearReactor-drake/1.3.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>ChestTerminal-drake</strong><small>1.21-Drake-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/ChestTerminal-drake/1.21-Drake-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>ColoredEnderChests-drake</strong><small>1.20.6-Drake-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/ColoredEnderChests-drake/1.20.6-Drake-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>commons-lang-drake-patched</strong><small>2.6.1-DRAKE-PATCHED</small><p></p><a href="com/github/drakescraft_labs/commons-lang-drake-patched/2.6.1-DRAKE-PATCHED/">Abrir carpeta</a></article>
+<article class="artifact"><strong>CompressionCraft-drake</strong><small>UNOFFICIAL</small><p></p><a href="com/github/drakescraft_labs/CompressionCraft-drake/UNOFFICIAL/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Coronalis-drake</strong><small>UNOFFICIAL</small><p></p><a href="com/github/drakescraft_labs/Coronalis-drake/UNOFFICIAL/">Abrir carpeta</a></article>
+<article class="artifact"><strong>CrystamaeHistoria-drake</strong><small>1.0.1</small><p></p><a href="com/github/drakescraft_labs/CrystamaeHistoria-drake/1.0.1/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Cultivation-drake</strong><small>2.5</small><p></p><a href="com/github/drakescraft_labs/Cultivation-drake/2.5/">Abrir carpeta</a></article>
+<article class="artifact"><strong>DankTech2-drake</strong><small>1.0.1</small><p></p><a href="com/github/drakescraft_labs/DankTech2-drake/1.0.1/">Abrir carpeta</a></article>
+<article class="artifact"><strong>drakes-labs-autoupdate</strong><small>11-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/drakes-labs-autoupdate/11-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>drakes-slimefun-labs</strong><small>11-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/drakes-slimefun-labs/11-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>DrakesBosses</strong><small>1.0.0</small><p></p><a href="com/github/drakescraft_labs/DrakesBosses/1.0.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>DyeBench-drake</strong><small>UNOFFICIAL</small><p></p><a href="com/github/drakescraft_labs/DyeBench-drake/UNOFFICIAL/">Abrir carpeta</a></article>
+<article class="artifact"><strong>DyedBackpacks-drake</strong><small>1.20.6-Drake-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/DyedBackpacks-drake/1.20.6-Drake-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>DynaTech-drake</strong><small>1.21-Drake-v7</small><p></p><a href="com/github/drakescraft_labs/DynaTech-drake/1.21-Drake-v7/">Abrir carpeta</a></article>
+<article class="artifact"><strong>EcoPower-drake</strong><small>1.20.6-Drake-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/EcoPower-drake/1.20.6-Drake-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>ElectricSpawners-drake</strong><small>1.21.1-Drake</small><p></p><a href="com/github/drakescraft_labs/ElectricSpawners-drake/1.21.1-Drake/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Element-Manipulation-drake</strong><small>1.1.1</small><p></p><a href="com/github/drakescraft_labs/Element-Manipulation-drake/1.1.1/">Abrir carpeta</a></article>
+<article class="artifact"><strong>EMCTech-drake</strong><small>MODIFIED</small><p></p><a href="com/github/drakescraft_labs/EMCTech-drake/MODIFIED/">Abrir carpeta</a></article>
+<article class="artifact"><strong>ExoticGarden-drake</strong><small>11.0-Drake-1.21.1-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/ExoticGarden-drake/11.0-Drake-1.21.1-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>ExtraGear-drake</strong><small>1.20.6-Drake-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/ExtraGear-drake/1.20.6-Drake-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>ExtraHeads-drake</strong><small>11.0-Drake-1.21.1-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/ExtraHeads-drake/11.0-Drake-1.21.1-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>ExtraTools-drake</strong><small>1.2</small><p></p><a href="com/github/drakescraft_labs/ExtraTools-drake/1.2/">Abrir carpeta</a></article>
+<article class="artifact"><strong>ExtraUtils-drake</strong><small>1.20.6-Drake-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/ExtraUtils-drake/1.20.6-Drake-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>FlowerPower-drake</strong><small>1.0.0</small><p></p><a href="com/github/drakescraft_labs/FlowerPower-drake/1.0.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>FluffyMachines-drake</strong><small>1.0.0</small><p></p><a href="com/github/drakescraft_labs/FluffyMachines-drake/1.0.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>FNAmplifications-drake</strong><small>Unoffical-4.2.4</small><p></p><a href="com/github/drakescraft_labs/FNAmplifications-drake/Unoffical-4.2.4/">Abrir carpeta</a></article>
+<article class="artifact"><strong>FoxyMachines-drake</strong><small>MODIFIED</small><p></p><a href="com/github/drakescraft_labs/FoxyMachines-drake/MODIFIED/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Gastronomicon-drake</strong><small>1.1.3</small><p></p><a href="com/github/drakescraft_labs/Gastronomicon-drake/1.1.3/">Abrir carpeta</a></article>
+<article class="artifact"><strong>GeneticChickengineering-Reborn-drake</strong><small>1.1.DEV</small><p></p><a href="com/github/drakescraft_labs/GeneticChickengineering-Reborn-drake/1.1.DEV/">Abrir carpeta</a></article>
+<article class="artifact"><strong>GeyserHeads-drake</strong><small>1.2</small><p></p><a href="com/github/drakescraft_labs/GeyserHeads-drake/1.2/">Abrir carpeta</a></article>
+<article class="artifact"><strong>GlobalWarming-drake</strong><small>11.0-Drake-1.21.1-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/GlobalWarming-drake/11.0-Drake-1.21.1-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>HardcoreSlimefun-drake</strong><small>1.0</small><p></p><a href="com/github/drakescraft_labs/HardcoreSlimefun-drake/1.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>HeadLimiter-drake</strong><small>UNOFFICIAL</small><p></p><a href="com/github/drakescraft_labs/HeadLimiter-drake/UNOFFICIAL/">Abrir carpeta</a></article>
+<article class="artifact"><strong>HotbarPets-drake</strong><small>1.20.6-Drake-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/HotbarPets-drake/1.20.6-Drake-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>InfinityExpansion-drake</strong><small>1.20.6-Drake-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/InfinityExpansion-drake/1.20.6-Drake-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>infinitylib-drake</strong><small>1.3.11-UNIVERSAL-26x-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/infinitylib-drake/1.3.11-UNIVERSAL-26x-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>JustEnoughGuide-Igdrassil</strong><small>2.1.45</small><p></p><a href="com/github/drakescraft_labs/JustEnoughGuide-Igdrassil/2.1.45/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Liquid-drake</strong><small>UNOFFICIAL</small><p></p><a href="com/github/drakescraft_labs/Liquid-drake/UNOFFICIAL/">Abrir carpeta</a></article>
+<article class="artifact"><strong>LiteXpansion-drake</strong><small>1.21-Drake-v2</small><p></p><a href="com/github/drakescraft_labs/LiteXpansion-drake/1.21-Drake-v2/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Magic8Ball-drake</strong><small>UNOFFICIAL</small><p></p><a href="com/github/drakescraft_labs/Magic8Ball-drake/UNOFFICIAL/">Abrir carpeta</a></article>
+<article class="artifact"><strong>MapJammer-drake</strong><small>1.0</small><p></p><a href="com/github/drakescraft_labs/MapJammer-drake/1.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>MiniBlocks-drake</strong><small>UNOFFICIAL</small><p></p><a href="com/github/drakescraft_labs/MiniBlocks-drake/UNOFFICIAL/">Abrir carpeta</a></article>
+<article class="artifact"><strong>MissileWarfare-drake</strong><small>1.13-SNAPSHOT.13</small><p></p><a href="com/github/drakescraft_labs/MissileWarfare-drake/1.13-SNAPSHOT.13/">Abrir carpeta</a></article>
+<article class="artifact"><strong>MobCapturer-drake</strong><small>11.0-Drake-1.21.1-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/MobCapturer-drake/11.0-Drake-1.21.1-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>MoreResearches-drake</strong><small>UNOFFICIAL</small><p></p><a href="com/github/drakescraft_labs/MoreResearches-drake/UNOFFICIAL/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Netheopoiesis-drake</strong><small>MODIFIED</small><p></p><a href="com/github/drakescraft_labs/Netheopoiesis-drake/MODIFIED/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Networks-Experimental-drake</strong><small>11-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/Networks-Experimental-drake/11-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>NetworksV6-drake</strong><small>11-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/NetworksV6-drake/11-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>NetworksV6-drake</strong><small>11.0.0-drake.6</small><p></p><a href="com/github/drakescraft_labs/NetworksV6-drake/11.0.0-drake.6/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Odysseia</strong><small>1.1.3</small><p></p><a href="com/github/drakescraft_labs/Odysseia/1.1.3/">Abrir carpeta</a></article>
+<article class="artifact"><strong>PotionExpansion-drake</strong><small>1.0.0</small><p></p><a href="com/github/drakescraft_labs/PotionExpansion-drake/1.0.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>PrivateStorage-drake</strong><small>1.21.1-Drake</small><p></p><a href="com/github/drakescraft_labs/PrivateStorage-drake/1.21.1-Drake/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Quaptics-drake</strong><small>0</small><p></p><a href="com/github/drakescraft_labs/Quaptics-drake/0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>RelicsOfCthonia-drake</strong><small>Unofficial-2.0.0</small><p></p><a href="com/github/drakescraft_labs/RelicsOfCthonia-drake/Unofficial-2.0.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>RykenSlimefunCustomizer-drake</strong><small>20</small><p></p><a href="com/github/drakescraft_labs/RykenSlimefunCustomizer-drake/20/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SaneCrafting-drake</strong><small>1.0</small><p></p><a href="com/github/drakescraft_labs/SaneCrafting-drake/1.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SensibleToolbox-drake</strong><small>1.21-Drake-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/SensibleToolbox-drake/1.21-Drake-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>sfadvancements-drake</strong><small>MODIFIED</small><p></p><a href="com/github/drakescraft_labs/sfadvancements-drake/MODIFIED/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SFCalc-drake</strong><small>1.21-Drake-v1</small><p></p><a href="com/github/drakescraft_labs/SFCalc-drake/1.21-Drake-v1/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SfChunkInfo-drake</strong><small>Unoffical-1.11-SNAPSHOT.1</small><p></p><a href="com/github/drakescraft_labs/SfChunkInfo-drake/Unoffical-1.11-SNAPSHOT.1/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SFMobDrops-drake</strong><small>1.20.6-Drake-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/SFMobDrops-drake/1.20.6-Drake-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SimpleMaterialGenerators-drake</strong><small>1.0.0</small><p></p><a href="com/github/drakescraft_labs/SimpleMaterialGenerators-drake/1.0.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SimpleStorage-drake</strong><small>MODIFIED</small><p></p><a href="com/github/drakescraft_labs/SimpleStorage-drake/MODIFIED/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SimpleUtils-drake</strong><small>MODIFIED</small><p></p><a href="com/github/drakescraft_labs/SimpleUtils-drake/MODIFIED/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SlimeChem-drake</strong><small>1.21-Drake-v7</small><p></p><a href="com/github/drakescraft_labs/SlimeChem-drake/1.21-Drake-v7/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SlimeCustomizer-drake</strong><small>1.0.0</small><p></p><a href="com/github/drakescraft_labs/SlimeCustomizer-drake/1.0.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SlimeFrame-drake</strong><small>1.7.0</small><p></p><a href="com/github/drakescraft_labs/SlimeFrame-drake/1.7.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>slimefun-core</strong><small>11.0-Drake-1.21.1-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/slimefun-core/11.0-Drake-1.21.1-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Slimefun-Disc</strong><small>1.5.DEV</small><p></p><a href="com/github/drakescraft_labs/Slimefun-Disc/1.5.DEV/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SlimefunLuckyBlocks-drake</strong><small>11.0-Drake-1.21.1-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/SlimefunLuckyBlocks-drake/11.0-Drake-1.21.1-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SlimefunOreChunks-drake</strong><small>1.20.6-Drake-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/SlimefunOreChunks-drake/1.20.6-Drake-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>slimefuntranslation</strong><small>11.0-Drake-1.21.1-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/slimefuntranslation/11.0-Drake-1.21.1-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SlimeHUD-drake</strong><small>1.3.1</small><p></p><a href="com/github/drakescraft_labs/SlimeHUD-drake/1.3.1/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SlimeTinker-drake</strong><small>1.2.DEV</small><p></p><a href="com/github/drakescraft_labs/SlimeTinker-drake/1.2.DEV/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SlimyRepair-drake</strong><small>1.0.0</small><p></p><a href="com/github/drakescraft_labs/SlimyRepair-drake/1.0.0/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SlimyTreeTaps-drake</strong><small>11.0-Drake-1.21.1-SNAPSHOT</small><p></p><a href="com/github/drakescraft_labs/SlimyTreeTaps-drake/11.0-Drake-1.21.1-SNAPSHOT/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SmallSpace-drake</strong><small>MODED</small><p></p><a href="com/github/drakescraft_labs/SmallSpace-drake/MODED/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SoulJars-drake</strong><small>1.21-Drake-v1</small><p></p><a href="com/github/drakescraft_labs/SoulJars-drake/1.21-Drake-v1/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SoundMuffler-drake</strong><small>11.0-Drake</small><p></p><a href="com/github/drakescraft_labs/SoundMuffler-drake/11.0-Drake/">Abrir carpeta</a></article>
+<article class="artifact"><strong>SpiritsUnchained-drake</strong><small>UNOFFICIAL</small><p></p><a href="com/github/drakescraft_labs/SpiritsUnchained-drake/UNOFFICIAL/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Supreme-drake</strong><small>MODIFIED</small><p></p><a href="com/github/drakescraft_labs/Supreme-drake/MODIFIED/">Abrir carpeta</a></article>
+<article class="artifact"><strong>TranscEndence-drake</strong><small>DevTest-33</small><p></p><a href="com/github/drakescraft_labs/TranscEndence-drake/DevTest-33/">Abrir carpeta</a></article>
+<article class="artifact"><strong>VillagerTrade-drake</strong><small>UNOFFICIAL</small><p></p><a href="com/github/drakescraft_labs/VillagerTrade-drake/UNOFFICIAL/">Abrir carpeta</a></article>
+<article class="artifact"><strong>VillagerUtil-drake</strong><small>MODIFIED</small><p></p><a href="com/github/drakescraft_labs/VillagerUtil-drake/MODIFIED/">Abrir carpeta</a></article>
+<article class="artifact"><strong>Wildernether-drake</strong><small>1.2.1</small><p></p><a href="com/github/drakescraft_labs/Wildernether-drake/1.2.1/">Abrir carpeta</a></article>
+<article class="artifact"><strong>WorldEditSlimefun-drake</strong><small>UNOFFICIAL</small><p></p><a href="com/github/drakescraft_labs/WorldEditSlimefun-drake/UNOFFICIAL/">Abrir carpeta</a></article>
+</div>
+<!--ARTIFACTS:END-->
       </section>
 
       <section id="usage" class="split">
@@ -471,5 +622,15 @@ mvn "-Dmaven.repo.local=$tempRepo" -U -DskipTests package</code></pre>
       <strong>DrakesCraft Labs</strong> mantiene este Maven repo como infraestructura publica para compilar plugins Drake/Slimefun de forma reproducible.
     </footer>
   </div>
+<script>
+document.querySelectorAll('.copy').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = b.parentNode.querySelector('code').textContent;
+    var done = function () { b.textContent = 'Copiado'; setTimeout(function () { b.textContent = 'Copiar'; }, 1500); };
+    if (navigator.clipboard) { navigator.clipboard.writeText(t).then(done); }
+    else { var r = document.createRange(); r.selectNodeContents(b.parentNode.querySelector('code')); var x = getSelection(); x.removeAllRanges(); x.addRange(r); document.execCommand('copy'); done(); }
+  });
+});
+</script>
 </body>
 </html>
