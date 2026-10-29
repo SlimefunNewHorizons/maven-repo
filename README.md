@@ -45,6 +45,12 @@ Todo el contenido y sus mecánicas se integran y desbloquean desde la **Guía de
 
 ---
 
+## Version compatibility (English)
+
+Two binary-incompatible lines are published (Minecraft 1.21.11 / Java 21 and Minecraft 26.2 / Java 25). See [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md) for the matrix and Maven examples.
+
+---
+
 ## 📋 Compatibilidad Técnica
 
 | Parámetro | Requisito |
