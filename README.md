@@ -1,88 +1,60 @@
 <div align="center">
 
-  <img src="https://raw.githubusercontent.com/SlimefunNewHorizons/maven-repo/main/banner.svg" alt="maven-repo Banner" width="920" />
+  <img src="https://raw.githubusercontent.com/SlimefunNewHorizons/maven-repo/main/banner.svg" alt="DrakesCraft Labs Maven Repository" width="920" />
 
-# ⚡ maven-repo
+# DrakesCraft Labs Maven Repository
 
-**SLIMEFUN4 ADDON · DRAKES EDITION**
+**Shared Maven & Gradle artifact repository for the Slimefun: New Horizons & DrakesCraft Labs ecosystem**
 
-<p>
-  <a href="https://github.com/SlimefunNewHorizons/maven-repo"><img src="https://img.shields.io/badge/GitHub-maven-repo-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
-  <img src="https://img.shields.io/badge/Slimefun4-Drake_Edition-22C55E?style=for-the-badge&logo=curseforge&logoColor=white" alt="Slimefun4"/>
-  <img src="https://img.shields.io/badge/Paper-1.21.11-38BDF8?style=for-the-badge&logo=minecraft&logoColor=white" alt="Paper 1.21.11"/>
-  <img src="https://img.shields.io/badge/Java-21-F89820?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java 21"/>
-</p>
+[![Live Portal](https://img.shields.io/badge/Portal-maven.drakescraft.cl-0EA5E9?style=for-the-badge)](https://maven.drakescraft.cl)
+[![Production](https://img.shields.io/badge/Production-MC_1.21.11_%C2%B7_Java_21-22C55E?style=for-the-badge&logo=openjdk&logoColor=white)](https://maven.drakescraft.cl/#lineas)
+[![Season 2](https://img.shields.io/badge/T2-MC_26.2_%C2%B7_Java_25-6366F1?style=for-the-badge&logo=openjdk&logoColor=white)](https://maven.drakescraft.cl/#lineas)
+[![GitHub Pages](https://img.shields.io/badge/Hosted_on-GitHub_Pages-181717?style=for-the-badge&logo=github)](https://github.com/SlimefunNewHorizons/maven-repo)
 
-</div>
-
-> ### 🏰 ¡Únete a la Comunidad Oficial de DrakesCraft!
-> 
-> * 🎮 **IP del Servidor**: `mc.drakescraft.cl` *(Java 1.21.11 & Bedrock)*
-> * 💬 **Discord Oficial**: [discord.gg/drakescraft](https://discord.gg/rv3vtXZTk7)
-> * 🌐 **Web & Guía**: [web.drakescraft.cl](https://web.drakescraft.cl) — 🛒 **Tienda**: [web.drakescraft.cl/store](https://web.drakescraft.cl/store.html)
-> 
-> *¡Juega con este addon y más de 80 expansiones optimizadas en vivo en nuestra network de supervivencia técnica!*
-
----
-
----
-
-## 📖 Descripción General
-
-**maven-repo** es un componente esencial del ecosistema **DrakesCraft Labs** para servidores Minecraft **Paper / Purpur 1.21.11**.
-
-Addon de Slimefun mantenido y optimizado por DrakesCraft Labs para Paper 1.21.11.
-
-Todo el contenido y sus mecánicas se integran y desbloquean desde la **Guía de Slimefun (`/sf guide`)** sin necesidad de comandos especiales.
-
----
-
-## ⚙️ Características y Sistemas Principales
-
-* 🚀 **Rendimiento Optimizado**: Construido para Java 21 sobre Paper 1.21.11 con recolección limpia de entidades y sin telemetría externa.
-* 🛡️ **Seguridad e Integridad**: Transacciones seguras en memoria y compatibilidad completa con almacenamiento `BlockStorage`.
-* 🎮 **Integración Total**: Compatible con Slimefun4-Drake, redes de logística, sistemas de energía y economía global.
-
----
-
-## Version compatibility (English)
-
-Two binary-incompatible lines are published (Minecraft 1.21.11 / Java 21 and Minecraft 26.2 / Java 25). See [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md) for the matrix and Maven examples.
-
----
-
-## 📋 Compatibilidad Técnica
-
-| Parámetro | Requisito |
-|---|---|
-| **Servidor** | Paper / Purpur / Folia **1.21.11** |
-| **Java** | **Java 21** LTS |
-| **Core** | [Slimefun4-Drake](https://github.com/SlimefunNewHorizons/Slimefun4-Drake) |
-| **Lado** | 100% Servidor (Server-side) |
-
----
-
-## 📥 Instalación
-
-1. Descarga la versión compilada `.jar` desde las releases del repositorio o Modrinth.
-2. Colócala en la carpeta `plugins/` de tu servidor Minecraft junto a `Slimefun4-Drake.jar`.
-3. Inicia o reinicia el servidor.
-
----
-
-<div align="center">
-
-**Desarrollado y Mantenido por [DrakesCraft Labs](https://github.com/SlimefunNewHorizons)**  
-Licencia **GPL-3.0-only** / **MIT**.
+[Web Portal](https://maven.drakescraft.cl) ·
+[Compatibility Matrix](./docs/COMPATIBILITY.md) ·
+[Manifest JSON](https://maven.drakescraft.cl/manifest.json) ·
+[DrakesCraft Network](https://web.drakescraft.cl) ·
+[Discord](https://discord.gg/rv3vtXZTk7)
 
 </div>
 
 ---
 
-## 📄 License & Upstream Attribution
+## Overview
 
-This project is a sovereign fork maintained by [**JackStar6677-1**](https://github.com/JackStar6677-1) under [**DrakesCraft Labs**](https://github.com/SlimefunNewHorizons).
+`https://maven.drakescraft.cl` publishes the shared Maven artifacts of the **Slimefun: New Horizons / DrakesCraft Labs** ecosystem so standalone plugins and suites compile reproducibly in CI/CD without local reactor builds or manually installed JARs.
 
-- **Original Project:** Created by the upstream authors and the open-source community.
-- **DrakesCraft Optimizations:** Modernized for Paper/Purpur 1.21.11+, Java 21, high concurrency, asynchronous safety, and exploit/duplication prevention.
-- **License:** Distributed under the original **GNU General Public License v3.0 (GPLv3)** (or original upstream license). See the [LICENSE](LICENSE) file for complete terms.
+## Version Lines
+
+> **Important:** The `1.21.11` (Java 21) and `26.x` (Java 25) lines are **not binary-interchangeable**. Package namespaces, Paper/Purpur APIs, and target JDK versions differ; always compile against the matching line.
+
+| Line | Minecraft | Java | Slimefun Package | Dough Package | Core Artifacts |
+| :--- | :---: | :---: | :--- | :--- | :--- |
+| **Production** | `1.21.11` | `21` | `com.github.drakescraft_labs.slimefun4` | `dev.drake.dough` | `slimefun-core:11.0-Drake-1.21.11-SNAPSHOT`, `dough-core:1.3.1-DRAKE-v11-SNAPSHOT`, `SefiLib:0.3.0-Drake-1.21.11` |
+| **Season 2 (T2)** | `26.2` | `25` | `io.github.thebusybiscuit.slimefun4` | `io.github.bakedlibs.dough` | `slimefun-core:11.0-Universal-26.x-SNAPSHOT`, `dough-core:1.3.1-Universal-26.x-SNAPSHOT`, `SefiLib:0.3.1-Universal-26.x-SNAPSHOT` |
+
+See [`docs/COMPATIBILITY.md`](./docs/COMPATIBILITY.md) for the full compatibility matrix.
+
+## Maven Configuration
+
+```xml
+<repositories>
+  <repository>
+    <id>drakescraft-labs</id>
+    <url>https://maven.drakescraft.cl</url>
+  </repository>
+</repositories>
+```
+
+## Gradle (Kotlin DSL) Configuration
+
+```kotlin
+repositories {
+    maven("https://maven.drakescraft.cl")
+}
+```
+
+## License
+
+Artifact licenses follow their respective upstream open-source projects. Repository tooling and portal assets are licensed under [`LICENSE`](./LICENSE).
